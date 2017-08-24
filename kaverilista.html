@@ -1,0 +1,38 @@
+<html>
+<head></head>
+<body>
+  <h1>Kaverilista -- ver. 1.0</h1>
+
+  <!-- id:n avulla viitataan input elementtiin ja value propertyyn funktiossa lisaaKaveri -->
+  <input id="nimi" type="text" value="anna joku nimi" />
+
+  <!-- onclick-tapahtuma käynnistää lisaaKaveri -funktion sekä printtaaKaverit -funktion -->
+  <button onclick="lisaaKaveri()">Lisää listaan frendi</button>
+  <button onclick="printtaaKaverit()">Printtaan mun frendit</button>
+
+  <ul id="lista">
+  </ul>
+
+<script>
+var kaverit =[];
+
+function lisaaKaveri(){
+  kaverit.push(document.getElementById("nimi").value);
+  printtaaKaverit();
+}
+
+function printtaaKaverit(){
+  document.getElementById("lista").innerHTML = "";
+  for(i=0;i<kaverit.length;i++){
+    document.getElementById("lista").innerHTML += "<li>" + kaverit[i] + ' <a href="#" onclick="poistaKaveri(' + i + ')">Poista</a></li>';
+  }
+}
+
+function poistaKaveri(n){
+  kaverit.splice(n,1);
+  printtaaKaverit();
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Select/Option JS -esimerkki</title>
+  <style>
+  div {
+    border: 1px solid black; padding: 1em; margin: 2em;
+  }
+  </style>
+</head>
+<body>
+  <h1>Select/Option JS -esimerkki</h1>
+
+<form onsubmit="event.preventDefault(); return;">
+  <div>
+    Valitse joku arvo listasta:
+    <select onchange="alert(this.value)" id="ekalista">
+      <option value="0">Valitse joku arvo</option>
+      <option value="kissa">Kissa</option>
+      <option value="koira">Koira</option>
+      <option value="100">100</option>
+    </select>
+    <button onclick="naytaEkaValinta(getElementById('ekalista').value)">Paina tästä kun olet valinnut</button>
+  </div>
+  <div >
+
+    <input type="text" id="num" value="11"/>
+    <button onclick="selectValue(document.getElementById('num').value)">Vaihda arvo</button>
+
+  </div>
+
+  <div style="border: 1px solid black; padding: 1em; margin: 2em; ">
+  <select data='demobox' name="val1" id="val1" >
+        <option value="">SELECT VALUE</option>
+        <option value="11">11</option>
+        <option value="27">27</option>
+        <option value="17">17</option>
+        <option value="10">10</option>
+        <option value="C">Celsius</option>
+        <option value="32">32</option>
+        <option value="18">18</option>
+        <option value="29">29</option>
+        <option value="28">28</option>
+        <option value="34">34</option>
+        <option value="12">12</option>
+        <option value="19">19</option>
+  </select>
+<button onclick="swapValue()">&lt;&lt; -- &gt;&gt;</button>
+  <select data='demobox' name="val2" id="val2">
+        <option value="">SELECT VALUE</option>
+        <option value="11">11</option>
+        <option value="27">27</option>
+        <option value="17">17</option>
+        <option value="10">10</option>
+        <option value="C">Celsius</option>
+        <option value="32">32</option>
+        <option value="18">18</option>
+        <option value="29">29</option>
+        <option value="28">28</option>
+        <option value="34">34</option>
+        <option value="12">12</option>
+        <option value="19">19</option>
+  </select>
+</div>
+</form>
+
+<script>
+
+function naytaEkaValinta(arvo){
+  alert(arvo);
+}
+
+var selectValue = function(x){
+  document.getElementById("val1").value = x;
+}
+
+var swapValue = function(){
+
+  var sel1value = document.getElementById("val1").value;
+  var sel2value = document.getElementById("val2").value;
+  document.getElementById("val1").value = sel2value;
+  document.getElementById("val2").value = sel1value;
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Laskin</title>
+  </head>
+  <body>
+    <h1>Laskin</h1>
+    <div>Summa on <span id="tulos">0</span></div>
+    <input class="teksti" id="luku1">
+    <button class="btn" id="btnPlus">Lisää</button>
+    <button class="btn" id="btnMiinus">Vähennä</button>
+  </body>
+  <script>
+    // globaali muuttuja näkyy kaikille funktioille
+    var tulos = 0;
+
+    // haetaan divi, jonne halutaan tulostaa
+    var tulosalue = document.getElementById('tulos');
+
+    // toinen tapa hakea elementti
+    var btnLisaa = document.querySelector('#btnPlus');
+
+    var luku = document.getElementById('luku1');
+
+    // tapahtumakäsittelijä
+    btnLisaa.onclick = function (event) {
+      console.log("luku.value on " + typeof luku.value);
+      console.log("luku.value on " + typeof +luku.value);
+
+      tulos += +luku.value;
+      console.log(tulos);
+      printtaa();
+    }
+
+    // toinen tapa tehdä tapahtumakäsittelijä
+    document.querySelector('#btnMiinus').addEventListener('click', miinusta);
+
+    function miinusta(){
+      tulos -= parseInt(luku.value);
+      printtaa();
+    }
+
+    function printtaa(){
+      tulosalue.innerHTML = tulos;
+    }
+  </script>
+  <style>
+
+  </style>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE htm>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Valintarakenteet - switch / if - else if - else</title>
+
+</head>
+<body>
+
+<h1>if else vai switch</h1>
+
+<div >
+  <h2>if - else if - else</h2>
+  <button onclick="tarkistaIfElse(this.innerHTML)">kissa</button>
+  <button onclick="tarkistaIfElse(this.innerHTML)">koira</button>
+  <button onclick="tarkistaIfElse(this.innerHTML)">apina</button>
+  <button onclick="tarkistaIfElse(this.innerHTML)">gorilla</button>
+  <button onclick="tarkistaIfElse(this.innerHTML)">käärme</button>
+</div>
+<div>
+  <h2>switch</h2>
+  <button onclick="tarkistaSwitch(this.innerHTML)">mansikka</button>
+  <button onclick="tarkistaSwitch(this.innerHTML)">mustikka</button>
+  <button onclick="tarkistaSwitch(this.innerHTML)">puolukka</button>
+  <button onclick="tarkistaSwitch(this.innerHTML)">herukka</button>
+  <button onclick="tarkistaSwitch(this.innerHTML)">porkkana</button>
+
+</div>
+
+  <p id="valintasi"></p>
+
+<script>
+
+function tarkistaIfElse(arvo) {
+
+  if (arvo == "kissa") {
+    annaViesti("Valitsit kissan");
+  } else if (arvo == "koira") {
+    annaViesti("Valitsit koiran");
+  } else if (arvo == "apina") {
+    annaViesti("Valitsit apinan");
+  } else if (arvo == "gorilla") {
+    annaViesti("Valitsit gorillan");
+  } else {
+    annaViesti("Valitsit jotain muuta!?!");
+  }
+
+}
+
+function tarkistaSwitch(arvo) {
+  switch (arvo) {
+    case "mustikka":
+      annaViesti("Valitsit mustikan");
+      break;
+    case "mansikka":
+      annaViesti("Valitsit mansikan");
+      break;
+    case "puolukka":
+      annaViesti("Valitsit puolukan");
+      break;
+    case "herukka":
+      annaViesti("Valitsit herukan");
+      break;
+    default:
+      annaViesti("Valitsit jotain mitä sattuu!");
+  }
+}
+
+function annaViesti(viesti) {
+  var p = document.getElementById("valintasi");
+  p.innerHTML = viesti;
+}
+
+
+</script>
