@@ -1,9 +1,10 @@
 <meta charset="utf-8">
 <title>Lomakkeen validointi</title>
 <style>
-  input[type=text] { width: 100%; padding: 10px 15px; margin: 8px 0;}
+  * { font-family: Arial; font-size: 1.1em;}
+  input[type="text"], input[type="submit"] { width: 100%; padding: 10px 15px; margin: 8px 0;}
   form { width: 500px; margin: 10px auto}
-  span { color: red; }
+  span { color: red; font-size: 0.9em}
 </style>
 
 <form name="lomake" onsubmit="return validateForm(event)">
@@ -13,7 +14,7 @@
   <input type="text" name="salasana" value="">
   <label>Email</label><span id="email"></span>
   <input type="text" name="email" value="">
-  <input type="submit" value="OK">
+  <input type="submit" value="Lähetä">
 </form>
 
 <script>
