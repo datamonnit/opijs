@@ -32,24 +32,26 @@
     var x = document.forms["lomake"]["nimi"].value;
     if (x.length < 3) {
       errors.push(["nimi"," Nimi on pakollinen! "]);
-      alert("nimi");
     }
 
     // Tarkistetaan salasana
     x = document.forms["lomake"]["salasana"].value;
     if (x.length < 3) {
       errors.push(["salasana"," Liian lyhyt salasana! "]);
-      alert("salasana");
     }
 
     x = document.forms["lomake"]["email"].value;
     if (!validateEmail(x)) {
       errors.push(["email"," Email on epäkelpo! "]);
-      alert("email");
+    }
+
+    var spanit = document.getElementsByTagName("span");
+    for (var j = 0; j < spanit.length; j++) {
+      spanit[j].innerHTML = "";
     }
 
     if (errors.length > 0) {
-      console.log(errors);
+
       for (var i=0; i < errors.length; i++){
         document.getElementById(errors[i][0]).innerHTML = errors[i][1];
       }
