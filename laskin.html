@@ -5,6 +5,7 @@
     <title>Laskin</title>
   </head>
   <body>
+    <p>Tämä esimerkki havainnollistaa erilaisia tapoja luoda tapahtumakäsittelijöitä.</p>
     <h1>Laskin</h1>
     <div>Summa on <span id="tulos">0</span></div>
     <input class="teksti" id="luku1">
@@ -12,6 +13,7 @@
     <button class="btn" id="btnMiinus">Vähennä</button>
   </body>
   <script>
+
     // globaali muuttuja näkyy kaikille funktioille
     var tulos = 0;
 
@@ -20,7 +22,6 @@
 
     // toinen tapa hakea elementti
     var btnLisaa = document.querySelector('#btnPlus');
-
     var luku = document.getElementById('luku1');
 
     // tapahtumakäsittelijä
@@ -28,7 +29,7 @@
       console.log("luku.value on " + typeof luku.value);
       console.log("luku.value on " + typeof +luku.value);
 
-      tulos += +luku.value;
+      tulos += luku.value*1;
       console.log(tulos);
       printtaa();
     }

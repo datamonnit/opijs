@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<title>Random-esimerkkejä</title>
+<h1>Arvotaan... </h1>
+
+<button onclick="arvotaan(this.id)" id="basic">Perus Random-metodi</button>
+<button onclick="arvotaan(this.id)" id="1-10">Arvotaan välitä 0-10</button>
+<button onclick="arvotaan(this.id)" id="sadat">Arvotaan luku joukosta 0, 100, 100</button>
+
+<p id="kohde"></p>
+<script type="text/javascript">
+var luvut = [];
+
+function arvotaan(id){
+  switch (id) {
+    case "sadat":
+      luvut.push(Math.floor(Math.random() * 3) * 100);
+      break;
+    case "1-10":
+      luvut.push(Math.floor(Math.random() * 10) + 1);
+      break;
+    default:
+      luvut.push(Math.random());
+  }
+
+function printtaa(lukusatsi){
+  for(i=0;i<lukusatsi.length)
+}
+
+  document.querySelector('#kohde').innerHTML = luvut;
+  console.log(id);
+}
+</script>
