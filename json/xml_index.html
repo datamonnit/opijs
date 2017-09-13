@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>XML-parsimista</title>
+  </head>
+  <body onload="getSettings()">
+    <h1>XML-tiedosto-esimerkki</h1>
+    <!--Tähän tieto XML-tiedostosta -->
+    <ul id="linkit"></ul>
+  </body>
+  <script type="text/javascript">
+  function getSettings(){
+
+    // Luetaan XML
+    var xmlhttp, xmlDoc;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "settings.xml", false);
+    xmlhttp.send();
+    xmlDoc = xmlhttp.responseXML;
+
+    // Haetaan ja asetetaan
+    var sivun_otsikko = xmlDoc.getElementsByTagName("otsikko")[0].childNodes[0].nodeValue;
+    document.title = sivun_otsikko;
+
+    // Haetaan ja asetetaan sivun taustaväri
+    var bgColor = xmlDoc.getElementsByTagName("tausta")[0].childNodes[0].nodeValue;
+    document.body.style.backgroundColor = bgColor;
+
+    var linkit = document.getElementById("linkit");
+    var x = xmlDoc.getElementsByTagName("valinta");
+    for (var i=0; i < x.length; i++) {
+      console.log(x[i].attributes.getNamedItem('url').nodeValue);
+      console.log(x[i].childNodes[0].nodeValue);
+
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      var linkText = document.createTextNode(x[i].childNodes[0].nodeValue);
+      a.appendChild(linkText);
+      a.title = x[i].attributes.getNamedItem('url').nodeValue;
+      a.href = x[i].attributes.getNamedItem('url').nodeValue;
+
+      li.appendChild(a);
+
+
+      linkit.appendChild(li);
+
+
+    }
+  }
+  </script>
+</html>
