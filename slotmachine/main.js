@@ -8,8 +8,6 @@ var imgObjects = [omena,banaani,mansikka];
 
 
 function pelaa() {
-  // ctx.fillStyle="white";
-  // ctx.clearRect(0,0,300,300);
   for (var i=0; i<slots.length; i++){
     var uusiLuku = Math.floor(Math.random() * 3);
     slots[i]= uusiLuku;
@@ -17,7 +15,7 @@ function pelaa() {
 
   console.log(slots);
   console.log(imgObjects);
-  ctx.drawImage(imgObjects[slots[0]],0,0);
-  ctx.drawImage(imgObjects[slots[1]],100,0);
-  ctx.drawImage(imgObjects[slots[2]],200,0);
+  ctx.drawImage(imgObjects[slots[0]],50,50);
+  ctx.drawImage(imgObjects[slots[1]],200,50);
+  ctx.drawImage(imgObjects[slots[2]],350,50);
 }
