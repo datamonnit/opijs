@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>XML-parsimista</title>
+  </head>
+  <body onload="getSettings()">
+    <h1 id="otsikko"><!-- tähän tieto json-tiedostosta --></h1>
+    <!--Tähän tieto XML-tiedostosta -->
+    <ul id="linkit"></ul>
+  </body>
+  <script type="text/javascript">
+  function getSettings(){
+
+    // Luetaan XML
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          var myObj = JSON.parse(this.responseText);
+          document.title = myObj.otsikko;
+          document.querySelector('#otsikko').innerHTML = myObj.otsikko;
+          document.body.style.backgroundColor = myObj.tausta;
+          var jsonLinkit = myObj.valikko;
+          var htmlLinkit = document.getElementById("linkit");
+
+          for (var i=0; i<jsonLinkit.length; i++){
+              var li = document.createElement("li");
+              var a = document.createElement("a");
+              var linkText = document.createTextNode(jsonLinkit[i].linkki);
+              a.appendChild(linkText);
+              a.title = jsonLinkit[i].url;
+              a.href = jsonLinkit[i].url;
+              li.appendChild(a);
+              linkit.appendChild(li);
+          }
+      }
+    };
+    xmlhttp.open("GET", "settings.json", true);
+    xmlhttp.send();
+  }
+  </script>
+</html>

@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<asetukset>
-  <otsikko>Hieno otsikko</otsikko>
-  <tausta>#dddddd</tausta>
-  <valikko>
-    <valinta url="http://www.google.fi">Google</valinta>
-    <valinta url="http://www.esedu.fi">Esedu</valinta>
-    <valinta url="http://www.mikkeli.fi">Mikkeli</valinta>
-    <valinta url="http://www.xamk.fi">XAMK</valinta>
-  </valikko>
-</asetukset>
+{ "otsikko" : "Hieno JSON-otsikko",
+  "tausta":"#dddddd",
+  "valikko": [
+    {"linkki":"Google","url":"http://www.google.fi"},
+    {"linkki":"Esedu","url":"http://www.esedu.fi"},
+    {"linkki":"Mikkeli","url":"http://www.mikkeli.fi"},
+    {"linkki":"XAMK","url":"http://www.xamk.fi"}
+  ]
+}
