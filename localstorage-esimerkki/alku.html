@@ -1,0 +1,41 @@
+<title>Cookie-esimerkki</title>
+<meta charset="utf-8">
+<input id="pisteet" type="number" name="pisteet" value="" placeholder="anna pisteet">
+<button type="button" name="save_btn" onclick="save();">Tallenna pisteet</button>
+<button type="button" name="clear_btn" onclick="clear_storage();">Tyhjennä strorage</button>
+<div>
+  <ul id="points_ul">
+
+  </ul>
+</div>
+<script>
+
+  window.onload = function() {
+    get_storage();
+  }
+
+  function save(){
+    var pisteet = document.querySelector('#pisteet').value;
+    window.location.href = "tallenna.html?pisteet=" + pisteet;
+  }
+
+  function clear_storage(){
+    console.log('Tyhjennetään localStorage');
+    localStorage.removeItem('time');
+  }
+
+  function get_storage(){
+    if (localStorage.getItem("points") !== null) {
+      points = JSON.parse(localStorage.getItem("points"));
+      for (var i=0; i<points.length; i++){
+        var ul = document.querySelector('#points_ul');
+        var li = document.createElement("li");
+        var text = document.createTextNode(points[i]);
+        li.appendChild(text);
+        ul.appendChild(li);
+      }
+
+    }
+  }
+
+</script>

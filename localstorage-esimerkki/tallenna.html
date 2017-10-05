@@ -1,0 +1,22 @@
+<script>
+var urlParams = new URLSearchParams(window.location.search);
+var point = urlParams.get('pisteet');
+alert(point);
+
+if (localStorage.getItem("time") === null) {
+  localStorage.time = Date.now();
+  if (localStorage.getItem("points") !== null) {
+    points = JSON.parse(localStorage.getItem("points"));
+    console.log(points);
+    points.push(point);
+    localStorage.points = JSON.stringify(points);
+  } else {
+    points = [];
+    points.push(point);
+    localStorage.points = JSON.stringify(points);
+  }
+  document.location.href = "alku.html";
+} else {
+  document.location.href= "end.html";
+}
+</script>
