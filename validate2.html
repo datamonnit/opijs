@@ -1,0 +1,102 @@
+<meta charset="utf-8">
+<title>Lomakkeen validointi</title>
+<style>
+  * { box-sizing: border-box; font-family: Arial; font-size: 1.1em;}
+  label {
+    text-align: right;
+    display: block;
+    float: left;
+    clear: left;
+    width: 30%;
+    /*margin-right: 10px;*/
+    padding: 5px 5px;
+  }
+  label.radio {
+    display: inline;
+    clear:none;
+    float: none;
+  }
+
+  input[type="text"] {
+    width: 70%;
+    display: block;
+    float: left;
+    /*margin: 5px 0;*/
+  }
+  input[type="radio"] {
+    display: inline;
+    float: none;
+  }
+
+  form { width: 800px; margin: 10px auto; border: 1px solid red}
+  span {
+    display: block;
+    clear: both;
+    margin-left: 220px;
+    color: red;
+    font-size: 0.9em;
+  }
+
+  input[type="submit"] {
+    display: block;
+    clear: both;
+  }
+</style>
+
+<form name="lomake" onsubmit="return validateForm(event)">
+  <label>Nimi</label>
+  <input type="text" name="nimi" value=""><span id="nimi"></span>
+  <label>Salasana</label>
+  <input type="text" name="salasana" value=""><span id="salasana"></span>
+  <label>Email</label>
+  <input type="text" name="email" value=""><span id="email"></span>
+  <label>Sukupuoli</label>
+  <input type="radio" name="sukupuoli" value="mies"><label class="radio">Mies</label>
+  <input type="radio" name="sukupuoli" value="Nainen"><label class="radio">Nainen</label>
+  <input type="submit" value="Lähetä">
+</form>
+
+<script>
+  function validateEmail(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+  }
+
+  function validateForm(e){
+
+    e.preventDefault();
+
+    var errors = [];
+
+    // Tarkistetaan nimi
+    var x = document.forms["lomake"]["nimi"].value;
+    if (x.length < 3) {
+      errors.push(["nimi"," Nimi on pakollinen! "]);
+    }
+
+    // Tarkistetaan salasana
+    x = document.forms["lomake"]["salasana"].value;
+    if (x.length < 3) {
+      errors.push(["salasana"," Liian lyhyt salasana! "]);
+    }
+
+    x = document.forms["lomake"]["email"].value;
+    if (!validateEmail(x)) {
+      errors.push(["email"," Email on epäkelpo! "]);
+    }
+
+    var spanit = document.getElementsByTagName("span");
+    for (var j = 0; j < spanit.length; j++) {
+      spanit[j].innerHTML = "";
+    }
+
+    if (errors.length > 0) {
+
+      for (var i=0; i < errors.length; i++){
+        document.getElementById(errors[i][0]).innerHTML = errors[i][1];
+      }
+      return false;
+    }
+
+  }
+</script>
