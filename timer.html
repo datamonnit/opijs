@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Timer</title>
+</head>
+<body>
+	<button onclick="aloita();">Aloita</button>
+	<button onclick="lopeta();">Lopeta</button>
+	<button onclick="osta()">Osta työmies</button>
+	<p id="laskenta"></p>
+	<script>
+	var timerId;
+	var laskuri = 0;
+	var työmiehiä = 0;
+	var laskenta = document.getElementById('laskenta');
+	
+	function aloita(){
+		timerId = setInterval(laske, 1000);
+	}
+
+	function lopeta(){
+		clearInterval(timerId);
+	}
+
+	function osta(){
+		työmiehiä++;
+	}
+
+	function laske(){
+		laskuri = laskuri + 1 * työmiehiä *10;
+		laskuri++;
+		laskenta.innerHTML = laskuri;
+	}
+	</script>
+</body>
+</html>
