@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Click</title>
+</head>
+<body>
+	<button ondblclick="tupla()" onclick="klikkaus()">Klikkaa!</button>
+	<div id="klikit"></div>
+	<script>
+
+	var laskuri = 0;
+	
+	function tulosta(){
+		console.log(laskuri);
+		document.getElementById('klikit').innerHTML = laskuri;
+	}
+
+	function tupla(){
+		laskuri = laskuri + 10;
+		tulosta();
+	}
+
+	function klikkaus(){
+		laskuri++;
+		tulosta();
+	}
+	</script>
+</body>
+</html>
