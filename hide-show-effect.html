@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hide - show</title>
+    <style>
+    .hide {
+        display: none;
+    }
+    </style>
+</head>
+<body> 
+    <p class="hide" id="hide">Teksitä</p>
+    <button onclick="show();">Show</button>
+    <button onclick="hide();">Hide</button>
+    <script>
+    function show(){
+        setTimeout(function(){
+            document.getElementById("hide").classList.remove('hide');
+        }, 3000);
+    }
+
+    function hide(){
+        setTimeout(function(){
+        document.getElementById("hide").classList.add('hide');
+        }, 3000);
+    }
+    </script>
+</body>
+</html>
