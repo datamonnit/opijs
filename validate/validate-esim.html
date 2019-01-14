@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validate</title>
+</head>
+<body>
+    <h1>JS-validointiesimerkkejä</h1>
+    
+    <h2>Postinumero</h2>
+
+    <!-- Esimerkki 1. Postinumeron validointi isNaN ja length -->
+    <p>Postinumeron validointi käyttämällä isNaN-funktiota ja length-metodia.</p>
+    <input type="text" id="zip" onkeyup="validateZip(this.value)">
+    <span id="zip_info"></span>
+    
+    <script>
+    var zip = document.getElementById('zip').value;
+    
+    function validateZip(zip){
+        if (!isNaN(zip) && zip.length == 5) {
+            document.getElementById('zip_info').innerHTML = "OK";
+        } else {
+            document.getElementById('zip_info').innerHTML = "Ei OK";
+        }
+        
+    }
+    </script>
+
+
+    <!-- Esimerkki 2. Postinumeron validointi regEx-funktiolla  -->
+    <p>Postinumeron validointi regex-funktiolla</p>
+
+    <input type="text" id="zip-regex" onkeyup="validateZipRegex(this.value)">
+    <span id="zip_regex_info"></span>
+
+    <script>
+    
+    function validateZipRegex() {
+        
+        var zip = document.getElementById('zip-regex').value;
+
+        if (/^[0-9]{5}(?:-[0-9]{4})?$/.test(zip)) {
+        // if (/^\d{5}$/.test(zip)){
+            document.getElementById('zip_regex_info').innerHTML = "OK";
+        } else {
+            document.getElementById('zip_regex_info').innerHTML = "Ei OK";
+        }
+    }
+    
+    
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS HTML-DOM</title>
+    <style>
+    button:disabled {
+        background-color: rgba(200,100,100,0.5)
+    }
+    </style>
+</head>
+<body>
+<button onclick="toggleDisabled();">Vaihda</button>    
+<button id="p1">Pelaaja 1</button>
+<button id="p2" disabled>Pelaaja 2</button>
+
+<script>
+
+let vuoro = 1;
+
+function toggleDisabled(){
+    
+    if (vuoro == 1) {
+        document.getElementById('p1').disabled = true;
+        document.getElementById('p2').disabled = false;
+        vuoro = 2;
+    } else {
+        document.getElementById('p1').disabled = false;
+        document.getElementById('p2').disabled = true;
+        vuoro = 1;
+    }
+}
+
+
+</script>
+</body>
+</html>
