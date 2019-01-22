@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>2D-array -esimerkki</title>
     <style>
     #pic {
         height: 200px;
@@ -21,7 +21,10 @@
     
     <script>
     
-    var x = 0;
+    var x = 0; // indeksi, josta kuvien näyttäminen aloitetaan
+    
+    // itmes-array sisältää kuvien nimet (sijaitsevat ../img -kansiossa)
+    // sekä kuvan näyttämiseen tarkoitettu aika (millisekuntteina)
     var items = [
         ["001-alphabet.png", 2000],
         ["002-school-bell.png", 4000],
@@ -33,29 +36,42 @@
     
     var out = document.getElementById('output');
     var pic = document.getElementById('pic');
-    console.log(items[0][0]); // 1
-    console.log(items);
     
+    /* 
+    Start-funktio käynnistää kuvien näyttämisen
+     */
     function start(){
-        pic.style.display = "block";
-        console.log(x + " alussa")
-        console.log(items);
         
-        out.innerHTML = items[x][0] + " : " + items[x][1] + '<br>';
+        /* 
+        Funktion toiminta
+        1. kuva-elementti näkyviin 
+        2. Näytetään sisemmän arrayn sisältö
+        3. Vaihdetaan kuva-elemtnin src-lähde
+        4. Vaihdetaan kuva-elemtnin src-lähde
+        5. Uusi arvo x-muuttujalle 
+        */
+
+        pic.style.display = "block";  // 1.  
+        out.innerHTML = items[x][0] + " : " + items[x][1] + '<br>';  // 2.       
         pic.src = '../img/' + items[x][0];
+
         var t = setTimeout(start,items[x][1]);
+        
         
         x = (x < items.length-1) ? x+1 : 0; // Ternary operator - fancy
 
         /*
+        
+        Ternary-operaattorin sijaan voidaan käyttää tavallista if-lausetta
+
         if (x < items.length-1) {
             x = x+1;
         } else {
             x = 0;
         }
+        
         */
-        console.log(x)
-    
+        
     }
     
     
