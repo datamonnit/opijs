@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #pic {
+        height: 200px;
+        width: auto;
+        display: none;
+    }
+    </style>
+</head>
+<body>
+
+    <img id="pic" src="" alt="changing-pic">
+    <p id="output"></p>
+    <button onclick="start()">Aloita</button>
+    
+    <script>
+    
+    var x = 0;
+    var items = [
+        ["001-alphabet.png", 2000],
+        ["002-school-bell.png", 4000],
+        ["003-bicycle.png", 1000],
+        ["004-blackboard.png", 500],
+        ["005-books.png", 10000],
+        ["006-calculator.png", 5000]
+    ];
+    
+    var out = document.getElementById('output');
+    var pic = document.getElementById('pic');
+    console.log(items[0][0]); // 1
+    console.log(items);
+    
+    function start(){
+        pic.style.display = "block";
+        console.log(x + " alussa")
+        console.log(items);
+        
+        out.innerHTML = items[x][0] + " : " + items[x][1] + '<br>';
+        pic.src = '../img/' + items[x][0];
+        var t = setTimeout(start,items[x][1]);
+        
+        x = (x < items.length-1) ? x+1 : 0; // Ternary operator - fancy
+
+        /*
+        if (x < items.length-1) {
+            x = x+1;
+        } else {
+            x = 0;
+        }
+        */
+        console.log(x)
+    
+    }
+    
+    
+    
+    </script>    
+
+
+
+
+</body>
+</html>
