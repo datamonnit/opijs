@@ -14,15 +14,18 @@
     </style>
 </head>
 <body>
-
-    <img id="pic" src="" alt="changing-pic">
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
     <p id="output"></p>
-    <button onclick="start()">Aloita</button>
+    <img id="pic" src="" alt="changing-pic">
+    
+    
     
     <script>
     
     var x = 0; // indeksi, josta kuvien näyttäminen aloitetaan
-    
+    var t = null; // timeout-index
+
     // itmes-array sisältää kuvien nimet (sijaitsevat ../img -kansiossa)
     // sekä kuvan näyttämiseen tarkoitettu aika (millisekuntteina)
     var items = [
@@ -55,7 +58,7 @@
         out.innerHTML = items[x][0] + " : " + items[x][1] + '<br>';  // 2.       
         pic.src = '../img/' + items[x][0];
 
-        var t = setTimeout(start,items[x][1]);
+        t = setTimeout(start,items[x][1]);
         
         
         x = (x < items.length-1) ? x+1 : 0; // Ternary operator - fancy
@@ -74,7 +77,12 @@
         
     }
     
-    
+    /* 
+    stop-funktio lopettaa start-funktion suorituksen
+    */
+    function stop(){
+        clearTimeout(t);   
+    }
     
     </script>    
 
