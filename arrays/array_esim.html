@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Array-esimerkki</title>
+    <style>
+    .delete {
+        font-size: 12px; cursor: pointer; color: red;
+    }
+    .insert {
+        font-size: 12px; cursor: pointer; color: green;
+    }
+    </style>
 </head>
 <body onload="print(kaupungit)">
     
@@ -39,7 +47,14 @@
         ul.innerHTML = '';
         
         for (let i = 0; i < arr.length; i++){
-            ul.innerHTML += '<li>'+arr[i]+' <a style="font-size: 12px; cursor: pointer; color: red;" onclick="removeAtIndex('+i+')">delete</a></li>'; 
+            // ul.innerHTML += '<li>'+arr[i]+' <a style="font-size: 12px; cursor: pointer; color: red;" onclick="removeAtIndex('+i+')">delete</a></li>'; 
+            
+            // tyylikkäämpää käyttää ES2015-syntaksia (huomaa back tick `)
+            ul.innerHTML += `<li>
+                                ${arr[i]}
+                                <a class="delete" onclick="removeAtIndex(${i})">delete</a>
+                                <a class="insert" onclick="insertAtIndex(${i})">insert</a>
+                            </li>`; 
         }
     }
 
@@ -59,6 +74,14 @@
     function removeAtIndex(index){
         kaupungit.splice(index,1);
         print(kaupungit);
+    }
+
+    // insertAtIndex-funktio lisää elementin haluttuun kohtaan
+    function insertAtIndex(index){
+        alert('huu')
+        let cityName = prompt('Give a new city name')
+        kaupungit.splice(index, 0, cityName);
+        print(kaupungit)
     }
     
     </script>
