@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array-esimerkki</title>
+</head>
+<body onload="print(kaupungit)">
+    
+    <form name="addForm" onsubmit="add(event)">
+        <input type="text" name="cityName">
+        <input type="submit" value="Add">
+    </form>
+    <button onclick="removeFirst()">Remove first</button>
+    <button onclick="removeLast()">Remove last</button>
+
+    <ul id="cityUl"></ul>
+
+    <script>
+    
+    var kaupungit = ['Mikkeli','Helsinki','Juva','Pieksämäki'];
+    
+    function add(e){
+        
+        e.preventDefault(); // cancel form submitting
+        
+        let newCity = document.forms['addForm']['cityName'].value;
+
+        kaupungit.push(newCity);
+
+        print(kaupungit);
+        
+    }
+
+    function print(arr){
+        let ul = document.querySelector('#cityUl');
+        ul.innerHTML = '';
+        for (let i = 0; i < arr.length; i++){
+            ul.innerHTML += '<li>'+arr[i]+' <a style="font-size: 12px; cursor: pointer; color: red;" onclick="removeAtIndex('+i+')">delete</a></li>'; 
+        }
+    }
+
+    function removeFirst(){
+        kaupungit.shift();
+        print(kaupungit);
+    }
+
+    function removeLast(){
+        kaupungit.pop();
+       print(kaupungit);
+    }
+
+    function removeAtIndex(index){
+        kaupungit.splice(index,1);
+        print(kaupungit);
+    }
+
+
+    console.log(kaupungit);
+
+    console.log(kaupungit[1]);
+
+    kaupungit[0] = 'Lahti';
+
+    kaupungit.push("Turku")
+    kaupungit.shift()
+    kaupungit.slice()
+
+    console.log(kaupungit);
+    
+    </script>
+</body>
+</html>
