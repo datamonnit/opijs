@@ -33,41 +33,33 @@
         
     }
 
+    // print-funktio tulostaa annetun arrayn (for-silmukka)
     function print(arr){
         let ul = document.querySelector('#cityUl');
         ul.innerHTML = '';
+        
         for (let i = 0; i < arr.length; i++){
             ul.innerHTML += '<li>'+arr[i]+' <a style="font-size: 12px; cursor: pointer; color: red;" onclick="removeAtIndex('+i+')">delete</a></li>'; 
         }
     }
 
+    // removeFirst-funktio poistaa ensimmäisen elementin (shift-metodi)
     function removeFirst(){
         kaupungit.shift();
         print(kaupungit);
     }
 
+    // removeLaset-funktio poistaa viimeisen elementin (pop-metodi)
     function removeLast(){
         kaupungit.pop();
        print(kaupungit);
     }
 
+    // removeAtIndex-funktio poistaa indeksinä annetun elementin (splice-metodi)
     function removeAtIndex(index){
         kaupungit.splice(index,1);
         print(kaupungit);
     }
-
-
-    console.log(kaupungit);
-
-    console.log(kaupungit[1]);
-
-    kaupungit[0] = 'Lahti';
-
-    kaupungit.push("Turku")
-    kaupungit.shift()
-    kaupungit.slice()
-
-    console.log(kaupungit);
     
     </script>
 </body>
