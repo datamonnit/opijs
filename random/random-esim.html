@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math.random - esimerkki</title>
+</head>
+<body>
+    
+    <button id="btnArvo">Arvo luku</button>
+    <p id="luku1"></p>
+    <p id="luku2"></p>
+    <p id="luku3"></p>
+
+
+<script>
+    document.getElementById('btnArvo').addEventListener('click', arvoLuku);
+
+    function arvoLuku(){
+        var n1 = Math.floor(Math.random() * 5);
+        var n2 = Math.floor(Math.random() * 5);
+        var n3 = Math.floor(Math.random() * 5);
+        document.getElementById('luku1').innerHTML = n1;
+        document.getElementById('luku2').innerHTML = n2;
+        document.getElementById('luku3').innerHTML = n3;
+
+        if (n1 == n2 && n2 == n3) {
+            alert('voitto');
+        }
+    }
+</script>
+
+</body>
+</html>

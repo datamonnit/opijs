@@ -1,0 +1,30 @@
+<head>
+    <title>Muuttjat</title>
+</head>
+<body>
+
+    <h1>Muuttuja</h1>
+
+    <input type="text" name="arvo" id="arvo">
+    <br>
+    <p id="tyyppi"></p>
+
+<script>
+var arvoInput = document.getElementById('arvo');
+var tyyppiP = document.getElementById('tyyppi');
+
+arvoInput.addEventListener('keyup', getArvo);
+
+function getArvo(){
+    if (!isNaN(arvoInput.value) && arvoInput.value.length == 5) {
+        tyyppiP.innerHTML = "postinumero";
+    } else {
+        tyyppiP.innerHTML = "ei postinumero";
+    }
+    
+
+}
+
+</script>
+
+</body>
