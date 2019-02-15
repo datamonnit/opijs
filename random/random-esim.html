@@ -9,25 +9,65 @@
 <body>
     
     <button id="btnArvo">Arvo luku</button>
-    <p id="luku1"></p>
-    <p id="luku2"></p>
-    <p id="luku3"></p>
+    <span id="luku1"></span>
+    <span id="luku2"></span>
+    <span id="luku3"></span>
+    <p id="info"></p>
 
 
 <script>
     document.getElementById('btnArvo').addEventListener('click', arvoLuku);
+    var infoTxt = document.getElementById('info');
+
+    var valittelut = [
+        'Sori!',
+        'Eipä onnistunu!',
+        'Buhuu! Huonoa tuuria',
+        'Hähhää',
+        'No voivoi!',
+        'Etkö sä osaa?!?',
+        'Surkee tuuri!'
+    ];
 
     function arvoLuku(){
-        var n1 = Math.floor(Math.random() * 5);
-        var n2 = Math.floor(Math.random() * 5);
-        var n3 = Math.floor(Math.random() * 5);
-        document.getElementById('luku1').innerHTML = n1;
-        document.getElementById('luku2').innerHTML = n2;
-        document.getElementById('luku3').innerHTML = n3;
+        var slots = [0,0,0];
+        slots[0] = Math.floor(Math.random() * 5);
+        slots[1] = Math.floor(Math.random() * 5);
+        slots[2] = Math.floor(Math.random() * 5);
 
-        if (n1 == n2 && n2 == n3) {
-            alert('voitto');
+        var slotsString = ""+slots[0] + slots[1] + slots[2];
+        console.log(slotsString);
+        
+        document.getElementById('luku1').innerHTML = slots[0];
+        document.getElementById('luku2').innerHTML = slots[1];
+        document.getElementById('luku3').innerHTML = slots[2];
+
+        switch (slotsString) {
+
+            case "000": 
+                infoTxt.innerHTML = "VOITTO! Kolme nollaa! ";
+                break; 
+            case "111": 
+                infoTxt.innerHTML = "VOITTO! Kolme ykköstä! ";
+                break; 
+            case "222": 
+                infoTxt.innerHTML = "VOITTO! Kolme kakkosta! ";
+                break;
+            case "333": 
+                infoTxt.innerHTML = "VOITTO! Kolme kolmosta! ";
+                break;
+            case "444": 
+                infoTxt.innerHTML = "VOITTO! Kolme nelosta! ";
+                break;   
+            default:
+                var x = Math.floor(Math.random() * valittelut.length);
+                             
+                infoTxt.innerHTML = valittelut[x];
+
         }
+
+
+
     }
 </script>
 
