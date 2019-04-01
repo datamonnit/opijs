@@ -36,11 +36,11 @@
     </style>
 </head>
 <body>
-    <form class="my-form" onsubmit="checkNimi(event)">
+    <form name="my-form" class="my-form" onsubmit="tarkistaLomake(event)">
 
         <div class="form-group">
             <label for="nimi">Nimi</label>
-            <input id="nimi" type="text" name="nimi" onkeyup="checkNimi(event)">
+            <input id="nimi" type="text" name="nimi">
             <span id="nimi_error" class="error"></span>
         </div>
         
@@ -50,7 +50,7 @@
         </div>
         
         <div class="form-group">
-            <textarea name="" id="" cols="30" rows="10">Viestisi</textarea>
+            <textarea name="viesti" id="viesti" cols="30" rows="10">Viestisi</textarea>
         </div>
 
         <div class="form-group">
@@ -60,19 +60,29 @@
     </form>
 
     <script>
-    function checkNimi(e){
+        function tarkistaLomake(e) {
+            
+            e.preventDefault();
 
-        e.preventDefault();
-
-        var nimi = document.getElementById('nimi').value;
-        var error = document.getElementById('nimi_error');
+            var nimi = document.forms['my-form']['nimi'].value;
+            var error_span = document.getElementById('nimi_error');
+            error_span.innerHTML = tarkistaNimi(nimi);
         
-        if (nimi.length < 3) {
-           error.innerHTML = "Nimi taitaa olla liian lyhyt";
-        } else {
-            error.innerHTML = "";
         }
-    }
+
+        function tarkistaNimi(text){
+            if (text == "") {
+                return 'Nimi ei voi olla tyhjä';
+            } else if (text.length < 2) {
+                return 'Nimi on liian lyhyt';
+            } else if (text.length > 10) {
+                return 'Nimi on liian pitkä';
+            }
+
+            return "";
+
+        }
+
     </script>
 
 </body>
