@@ -47,6 +47,7 @@
         <div class="form-group">
             <label for="email">Email</label>
             <input type="text" name="email">
+            <span id="email_error" class="error"></span>
         </div>
         
         <div class="form-group">
@@ -65,12 +66,21 @@
             e.preventDefault();
 
             var nimi = document.forms['my-form']['nimi'].value;
-            var error_span = document.getElementById('nimi_error');
-            error_span.innerHTML = tarkistaNimi(nimi);
+            var email = document.forms['my-form']['email'].value;
+
+            var error_spans = [];
+            error_spans['nimi'] = document.getElementById('nimi_error');
+            error_spans['email'] = document.getElementById('email_error');
+            
+            
+            
+            error_spans['nimi'].innerHTML = tarkistaNimi(nimi);
+            error_spans['email'].innerHTML = tarkistaEmail(email);
         
         }
 
         function tarkistaNimi(text){
+
             if (text == "") {
                 return 'Nimi ei voi olla tyhjä';
             } else if (text.length < 2) {
@@ -81,6 +91,11 @@
 
             return "";
 
+        }
+
+        function tarkistaEmail(text){
+            /* Tähän email -tsekkaus */
+            return "";
         }
 
     </script>

@@ -1,10 +1,34 @@
-<input id="emailTxt" type="text" >
+<html>
+<head>
+    <title>Email-validointi</title>
+    <style>
+    .validation-results { color: red; }
+    </style>
+</head>
+<body>
 
-<script>
-    document.getElementById("emailTxt").addEventListener("change", validateEmail(param));
-    
-    function validateEmail(email){
-        console.log(email);
-    }
-    
-    </script>
+    <label for="emailTxt">Email:</label><br>
+    <input id="emailTxt" type="text" placeholder="syötä sähköpostiosoite" onkeyup="myValidation(this.value)">
+
+    <div class="validation-results">
+        <p id="regex"></p>
+    </div>
+    <script>
+        
+        function myValidation(str){
+            document.getElementById('regex').innerHTML = regexEmail(str);
+        }
+
+        // Very simple regex
+        function regexEmail(email) {
+            var re = /^\S+@\S+[\.][0-9a-z]+$/;
+            return re.test(email);
+        }
+
+        function 
+
+
+        
+        </script>        
+</body>
+</html>
