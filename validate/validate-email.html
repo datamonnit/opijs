@@ -16,7 +16,12 @@
     <script>
         
         function myValidation(str){
-            document.getElementById('regex').innerHTML = regexEmail(str);
+            if (regexEmail(str)) {
+                document.getElementById('regex').innerHTML = "Email on ok";
+            } else {
+                document.getElementById('regex').innerHTML = "Email on virheellinen";
+            }
+            
         }
 
         // Very simple regex
@@ -24,8 +29,6 @@
             var re = /^\S+@\S+[\.][0-9a-z]+$/;
             return re.test(email);
         }
-
-        function 
 
 
         
