@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validate checkboxes</title>
+    <style>
+    .form-control {
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+    <form name="my-form" onsubmit="checkForm(event)">
+        <div class="form-control">
+            <input type="checkbox" name="drink" id="r1" value="water">
+            <label for="r1">Water</label>
+        </div>
+        
+        <div class="form-control">
+            <input type="checkbox" name="drink" id="r2" value="milk">
+            <label for="r2">Milk</label>
+        </div>
+
+        <div class="form-control">
+            <input type="checkbox" name="drink" id="r3" value="juice">
+            <label for="r3">Juice</label>
+        </div>
+
+        <div class="form-control">
+            <input type="checkbox" name="drink" id="r4" value="soda">
+            <label for="r4">Soda</label>
+        </div>
+        
+        <div id="error"></div>
+
+        <div class="form-control">
+            <input type="submit" value="Check">
+        </div>
+        
+    </form>
+    <script>
+    function checkForm(e){
+        
+        e.preventDefault();
+
+        // Valitaan kaikki checkboxit
+        var checkboxes = document.forms['my-form']['drink'];
+        
+        // Alustetaan valittujen boxien määrää kuvaava muuttuja
+        var selected = 0;
+
+        // Käydään läpi kaikki checkboxit
+        for (var i=0; i<checkboxes.length; i++) {
+            
+            // Jos löytyy valittu checkboxi
+            if (checkboxes[i].checked == true) {
+                // Kasvatetaan valittujen määrää yhdellä
+                selected++;
+            }
+        }
+
+        // Jos valittuja boxeja on edelleen nolla, annetaan herja
+        if (selected == 0) {
+            document.getElementById('error').innerHTML = "Ainakin yksi pitää valita";
+        } else {
+            document.getElementById('error').innerHTML = "";
+        }
+    }
+    </script>
+</body>
+</html>
