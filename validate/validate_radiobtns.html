@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validate radiobuttons</title>
+    <style>
+    .form-control {
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+    <form name="my-form" onsubmit="checkForm(event)">
+        <div class="form-control">
+            <input type="radio" name="drink" id="r1" value="water">
+            <label for="r1">Water</label>
+        </div>
+        
+        <div class="form-control">
+            <input type="radio" name="drink" id="r2" value="milk">
+            <label for="r2">Milk</label>
+        </div>
+
+        <div class="form-control">
+            <input type="radio" name="drink" id="r3" value="juice">
+            <label for="r3">Juice</label>
+        </div>
+
+        <div class="form-control">
+            <input type="radio" name="drink" id="r4" value="soda">
+            <label for="r4">Soda</label>
+        </div>
+        
+        <div id="error"></div>
+
+        <div class="form-control">
+            <input type="submit" value="Check">
+        </div>
+        
+    </form>
+    <script>
+    function checkForm(e){
+        
+        e.preventDefault();
+
+        var drink = document.forms['my-form']['drink'].value;
+
+        if (drink == "") {
+            document.getElementById("error").innerHTML = "Joku juoma pitää valita";
+        } else {
+            document.getElementById("error").innerHTML = "";
+        }
+
+
+    }
+    </script>
+</body>
+</html>

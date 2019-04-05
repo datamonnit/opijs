@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validate select</title>
+    <style>
+    .form-control {
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+    <form name="my-form" onsubmit="checkForm(event)">
+        <div class="form-control">
+            <label for="drink">Valitse juoma</label>
+            <select name="drink" id="drink">
+                <option value="">Valitse suosikkijomasi...</option>
+                <option value="water">Water</option>
+                <option value="milk">Milk</option>
+                <option value="juice">Juice</option>
+                <option value="soda">Soda</option>
+            </select>
+        </div>
+        
+        <div id="error"></div>
+
+        <div class="form-control">
+            <input type="submit" value="Check">
+        </div>
+        
+    </form>
+    <script>
+    function checkForm(e){
+        
+        e.preventDefault();
+
+        var drink = document.forms['my-form']['drink'].value;
+        
+        // Vaihtoehotoisesti voi valita elementin ID:n perusteella
+        // var drink = document.getElementById('drink').value;
+
+        if (drink == "") {
+            document.getElementById("error").innerHTML = "Joku juoma pitää valita";
+        } else {
+            document.getElementById("error").innerHTML = "";
+        }
+
+
+    }
+    </script>
+</body>
+</html>
