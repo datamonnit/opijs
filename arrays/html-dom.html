@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML DOM</title>
+    <style>
+    .error {
+        color: red;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>Lomake</h1>
+    <form name="my-form" onsubmit="checkForm(event)">
+        <label for="nimi">Nimi:</label><br>
+        <input type="text" name="nimi"><br>
+        <span class="error" id="nimi_error"></span><br>
+
+        <label for="osoite">Osoite:</label><br>
+        <input type="text" name="osoite"><br>
+        <span class="error" id="osoite_error"></span><br>
+
+        <label for="kielitaito">Kielitaito:</label><br>
+        <input type="checkbox" name="kielitaito" id="suomi"><label for="suomi">Suomi</label><br>
+        <input type="checkbox" name="kielitaito" id="ruotsi"><label for="ruotsi">Ruotsi</label><br>
+        <input type="checkbox" name="kielitaito" id="englanti"><label for="englanti">Englanti</label><br>
+        <input type="checkbox" name="kielitaito" id="venäjä"><label for="venäjä">Venäjä</label><br>
+        <span class="error" id="kieli_error"></span><br>
+        <input type="submit" value="Lähetä">
+    </form>
+    <script>
+        function checkForm(e) {
+            e.preventDefault();
+            
+            // Tyhjennetään error-kentät
+            var error_spans = document.getElementsByTagName('span');
+            
+            for (var x=0; x < error_spans.length; x++) {
+                error_spans[x].innerHTML = "";
+            }
+
+            var nimi_error = document.getElementById('nimi_error');
+            var kieli_error = document.getElementById('kieli_error');
+            var osoite_error = document.getElementById('osoite_error');
+
+            // Nimen tsekkaus
+            var nimi = document.forms['my-form']['nimi'].value;
+            
+
+            if (nimi == "") {
+                document.getElementById('nimi_error').innerHTML = "Et antanut nimeä!";
+            }
+
+            // Kielitaidon tsekkaus
+            var kielitaito = document.forms['my-form']['kielitaito'];
+            var valittu = 0;
+
+            for (var i = 0; i<kielitaito.length; i++) {
+                console.log(kielitaito[i].checked);
+
+                if (kielitaito[i].checked == true) {
+                    valittu++;
+                }
+
+            }
+
+            if (valittu < 2) {
+                document.getElementById('kieli_error').innerHTML = "Kaksi pitää valita!";
+            }
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>
