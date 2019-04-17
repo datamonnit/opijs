@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Karkausvuosi</title>
+</head>
+<body>
+    <h1>Karkausvuoden tarkistus</h1>
+    <p>Anna vuosiluku, niin ohjelma tarkistaa, onko se karkausvuosi.</p>
+    <form onsubmit="check(event)">
+        <input type="text" placeholder="anna vuosi" id="vuosi">
+        <input type="submit" value="Tarkista">
+    </form>
+    <p id="vastaus"></p>
+
+    <script>
+    function check(e) {
+        e.preventDefault();
+
+        var vuosi = document.getElementById('vuosi').value;
+        var vastaus = document.getElementById('vastaus');
+
+        if ( vuosi % 100 == 0 && vuosi % 400 == 0 || ( vuosi % 100 != 0 && vuosi % 4 == 0 ) ) {
+            vastaus.innerHTML = vuosi + " on karkausvuosi";
+        } else {
+            vastaus.innerHTML = vuosi + " ei ole karkausvuosi";
+        }
+
+
+        if (vuosi % 100 == 0 && vuosi % 400 == 0) {
+            vastaus.innerHTML = vuosi + " on karkausvuosi";
+        } else if (vuosi % 100 != 0 && vuosi % 4 == 0) {
+            vastaus.innerHTML = vuosi + " on karkausvuosi";
+        } else {
+            vastaus.innerHTML = vuosi + " ei ole karkausvuosi";
+        }
+
+    }
+    </script>
+
+</body>
+</html>
