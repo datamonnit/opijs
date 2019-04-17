@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Key Events</title>
+</head>
+<body>
+    
+    <input type="text" 
+        onkeydown="down(event)"
+        onkeypress="press(event)"
+        onkeyup="up(event)">
+    
+    <div id="output" style="height: 300px; overflow: scroll; border: 1px solid black; font-size: 8px;">
+
+    </div>
+
+    <script>
+        var d = p = u = 0;
+        var div = document.getElementById("output");
+
+        function down(e){
+            div.innerHTML = "Down tapahtui " + d++ + " kertaa<br>" + div.innerHTML;
+            console.log(e);
+        }
+        function press(e){
+            div.innerHTML = "Press tapahtui " + p++ + " kertaa<br>" + div.innerHTML;
+            console.log(e);
+        }
+        function up(e){
+            div.innerHTML = "Up tapahtui " + u++ + " kertaa<br>" + div.innerHTML;
+            console.log(e);
+        }
+    
+    </script>
+</body>
+</html>
