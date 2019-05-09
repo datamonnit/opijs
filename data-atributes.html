@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data-attributes</title>
+</head>
+<body>
+    <p style="display: none;" id="kamaa" data-id="1001" data-kissa="katti" data-juttu="Tässä kamaa jotain tarkoitusta varten"></p>
+    <ul>
+        <li data-id="1" onclick="save(event)">Koira</li>
+        <li data-id="2" onclick="save(event)">Kissa</li>
+        <li data-id="3" onclick="save(event)">Apina</li>
+    </ul>
+    <script>
+    function save(e){
+        console.log(e);
+        console.log(e.target);
+
+        console.log(document.getElementById("kamaa").dataset);
+
+        var id = e.target.dataset.id;
+
+    }    
+    </script>
+</body>
+</html>
