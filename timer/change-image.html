@@ -8,20 +8,27 @@
 </head>
 <body>
     <h1>Change image with timer</h1>
-    <img id="myImage" src="../img/003-bicycle.png" alt="" onclick="changeImage(500);">
+    <img id="myImage" src="../img/003-bicycle.png" alt="" onclick="changeImage('myImage', 500, '../img/004-blackboard.png');">
     <button onclick="changeImage(500);">Press</button>
 
-<script>
+<script>    
+/*
+Function changeImage() changes src of desired element to another for any given amount of millisecons.
+Parameters: 
+    id - id of a DOM element
+    ms - amount of milliseconds
+    imageSrc - url of on image to be shown
+ */
+function changeImage(id, ms, imageSrc){
+    document.getElementById(id).src = imageSrc;
     
-// Funktio joka käynnistää toisen kuvan näyttämisen
-function changeImage(ms){
-    document.getElementById("myImage").src = "../img/004-blackboard.png";
-    
-    // Näytetään toista kuvaa ms millisekuntia
+    // Call swap image after n milliseconds to restore original image
     let t = setTimeout(swap, ms);
 
 }
-
+/* 
+swap() - Restores the original
+ */
 function swap(){
     document.getElementById("myImage").src = "../img/003-bicycle.png";
 }
