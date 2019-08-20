@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Change image with timer</title>
+</head>
+<body>
+    <h1>Change image with timer</h1>
+    <img id="myImage" src="../img/003-bicycle.png" alt="" onclick="changeImage(500);">
+    <button onclick="changeImage(500);">Press</button>
+
+<script>
+    
+// Funktio joka käynnistää toisen kuvan näyttämisen
+function changeImage(ms){
+    document.getElementById("myImage").src = "../img/004-blackboard.png";
+    
+    // Näytetään toista kuvaa ms millisekuntia
+    let t = setTimeout(swap, ms);
+
+}
+
+function swap(){
+    document.getElementById("myImage").src = "../img/003-bicycle.png";
+}
+
+</script>
+
+</body>
+</html>
