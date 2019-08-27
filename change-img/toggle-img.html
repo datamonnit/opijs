@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Toggle image -example</title>
+    <style>
+    #myImage {
+        cursor: pointer;
+        width: 200px;
+
+    }
+    </style>
+</head>
+<body>
+    <h1>Toggel image -example</h1>
+    <p>Click image to toggle pic.</p>
+    
+    <img data-check="bike" id="myImage" src="../img/003-bicycle.png" alt="" onclick="toggeleImg(this);">
+
+    <script>
+    
+    /**
+    * @desc toggleImg - toggles img src in an element based on data-check -attribute
+    * @param Clicked element (elem)
+    * @return string - dataset.check of clicked element
+    */
+    function toggeleImg(elem){
+        
+        const images = ["../img/005-books.png", "../img/003-bicycle.png"];
+
+        if (elem.dataset.check == 'bike') {
+            document.getElementById(elem.id).src = images[0];
+            elem.dataset.check = "books";
+        } else {
+            document.getElementById(elem.id).src = images[1];
+            elem.dataset.check = "bike";
+        }
+
+        return elem.dataset.check;
+        
+    }
+
+
+    </script>
+</body>
+</html>
