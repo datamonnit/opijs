@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Click-example</title>
+</head>
+<body onload="update()">
+    <p>Arvo: <span id="panos"></span> </p>
+    <button onclick="asetaArvo(1)">1€</button>
+    <button onclick="asetaArvo(2)">2€</button>
+    <button onclick="asetaArvo(5)">5€</button>
+    <script>
+    
+    let arvo = 1;
+
+    function asetaArvo(n){
+        arvo = n;
+        update();
+    }
+
+    function update(){
+        document.getElementById("panos").innerHTML = arvo;
+    }
+
+    </script>
+</body>
+</html>
