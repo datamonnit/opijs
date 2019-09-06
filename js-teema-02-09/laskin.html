@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS-muuttujat</title>
+</head>
+<body>
+    <h1>Laskin</h1>
+    Luku 1: <input onchange="asetaLuvut();" type="number" id="luku1">
+    <br>
+    Luku 2: <input onchange="asetaLuvut();" type="number" id="luku2">
+    <br>
+    Laskutoimitus: 
+    <select onchange="asetaLaskutoimitus();" name="" id="toiminto">
+        <option value="plus">Plus</option>
+        <option value="miinus">Miinus</option>
+        <option value="kerto">Kerto</option>
+        <option value="jako">Jako</option>
+    </select>
+    <br>
+    <p>Vastaus:<span id="vastaus"></span></p>
+    <button onclick="laske();" id="btnLaske">Laske</button> 
+
+    <script src="./js/laskin.js"></script>
+
+</body>
+</html>
