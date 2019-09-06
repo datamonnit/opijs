@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Gallery -example</title>
+    <style>
+    img {
+        width: 100px;
+        height: auto;
+        display: block;
+        margin: 10px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <p>Example of using arrays, functions and event listeners in a simple pic gallery.</p>
+    <div>
+        <button id="left">Prev</button><button id="right">Next</button>
+        <img id="thePic" src="../img/001-alphabet.png" alt="Changing pic">
+    </div>
+    <script>
+    document.getElementById("left").addEventListener('click',prev);
+    document.getElementById("right").addEventListener('click',next);
+    
+    let path = "../img/";
+    let images = ['001-alphabet.png','002-school-bell.png','003-bicycle.png','004-blackboard.png'];
+    let i = 0;
+    
+    function next(){
+        i++;
+        if (i > images.length - 1) { 
+            i = images.length - 1;
+        }
+        showPic(i);
+    }
+
+    function prev(){
+        i--;
+        if (i < 0) {
+            i = 0;
+        }
+        showPic(i);
+    }
+
+    function showPic(n){
+        const imgElem = document.getElementById("thePic");
+        imgElem.src = path + images[n];
+    }
+
+    </script>
+
+
+</body>
+</html>
