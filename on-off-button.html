@@ -7,10 +7,13 @@
     <title>On-Off -example</title>
 </head>
 <body>
+    <h1>ON-OFF -button example</h1>
+    <h2>Example 1</h2>
+    <p>Simple example with integer 0/1 value as button state.</p>
     <button id="on-off-btn" onclick="changeState();">OFF</button>
     <script>
     let btnState = 0;
-
+    
     function changeState(){
         
         btn = document.getElementById('on-off-btn');
@@ -23,15 +26,22 @@
             btn.innerHTML = "OFF";
         }
 
-        if (kissa=musta){
-            console.log('anna sille maitoa')
-        } else {
-            console.log('Anna sille vettä')
-        }
-
         console.log(btnState);
     }
-    
     </script>
+
+    <h2>Example 2</h2>
+    <p>Example with boolean value as button state. Ternary operator in function</p>
+    <button id="on-off-btn2" onclick="changeState2()">OFF</button>
+    <script>
+
+    let btn2State = false;
+    function changeState2(){
+        btn2State = !btn2State;
+        document.getElementById("on-off-btn2").innerHTML = (btn2State == false) ? "OFF" : "ON";
+    }
+    </script>
+
+
 </body>
 </html>
