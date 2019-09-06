@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON loop</title>
+</head>
+<body>
+    <div id="links">
+
+    </div>
+<script>
+let xmlhttp = new XMLHttpRequest();
+let file = "tutorials.json";
+xmlhttp.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+        let myJSON = JSON.parse(this.responseText);
+        printJSON(myJSON);
+    }
+}
+xmlhttp.open("GET", file, true);
+xmlhttp.send();
+
+function printJSON(data){
+    let i = 0;
+    let html = "";
+    while(data[i]) {
+        html += '<a href="' + data[i].url + '">' + data[i].display + '</a><br>';
+        i++;
+    }
+    document.getElementById("links").innerHTML = html;
+}
+
+
+</script>
+
+</body>
+</html>

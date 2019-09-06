@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>For-Loop Example</title>
+    <style>
+    img {
+        width: 200px;
+        height: auto;
+    }
+    </style>
+</head>
+<body>
+    <h1>For-loop example</h1>
+
+    <label for="name">Nimi</label><br>
+    <input type="text"><br>
+    <label for="name">Osoite</label><br>
+    <input type="text"><br>
+    <label for="name">Puhelin</label><br>
+    <input type="text"><br>
+    <label for="name">Sähköposti</label><br>
+    <input type="text"><br>
+
+    <button onclick="checkInputs()">Check</button>
+
+    <div id="kuvat"></div>
+
+    <script>
+    let images = ["001-alphabet.png","002-school-bell.png","003-bicycle.png","004-jokukuva.png"];
+    
+    for (let i = 0; i < images.length; i++) {
+        document.getElementById("kuvat").innerHTML += '<img src="../img/'+ images[i] +'" alt="">'
+    }
+    
+    function checkInputs(){
+        let inputFields = document.getElementsByTagName("input");
+        let errorsCount = 0;
+        for (let i = 0; i < inputFields.length; i++){
+            console.log(inputFields[i].value);
+            if (inputFields[i].value == "") {
+                errorsCount++;
+            }
+        }
+
+        if (errorsCount > 0) {
+            alert("Et täyttänyt kaikkia kenttiä! " + errorsCount + " kenttää jäi tyhjäksi.")
+        }
+
+    }
+
+
+    </script>
+</body>
+</html>

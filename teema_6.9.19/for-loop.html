@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>For-Loop Example</title>
+    <style>
+    img {
+        width: 100px;
+        height: auto;
+        display: inline-block;
+        margin: 10px;
+    } 
+    input[type="text"] {
+        border: 0.5px solid #444;
+        background-color: #ddd;
+    }
+    </style>
+</head>
+<body>
+    <h1>For-loop example</h1>
+    
+    <h2>Check input-fields <button onclick="checkInputs()">Check</button></h2>
+    <p>Try to leave some on inputfields empty and click Check -button.</p>
+    <form>
+        <label for="name">Nimi</label><br>
+        <input type="text"><br>
+        <label for="name">Osoite</label><br>
+        <input type="text"><br>
+        <label for="name">Puhelin</label><br>
+        <input type="text"><br>
+        <label for="name">Sähköposti</label><br>
+        <input type="text"><br>
+    </form>
+    
+
+    <h2>Images from array <button onclick="getImages(images)">Get images</button></h2>
+    <div id="kuvat"></div>
+
+    <script>
+    
+    /* checkInputs -funktio etsii sivulta input-elementit ja tarkistaa ovatko ne tyhjiä. 
+    Tyhjät input -kentät muotoillaan huomiota herättävällä värillä. */    
+    function checkInputs(){
+        let inputFields = document.getElementsByTagName("input");
+        let errorsCount = 0;
+        for (let i = 0; i < inputFields.length; i++){
+            console.log(inputFields[i].value);
+            if (inputFields[i].value == "") {
+                errorsCount++;
+                inputFields[i].style.border = "1px solid red";
+                inputFields[i].style.backgroundColor = "#6ff";
+
+
+            } else {
+                inputFields[i].style.border = "0.5px solid #111";
+                inputFields[i].style.backgroundColor = "#ddd";
+            }
+        }
+
+        if (errorsCount > 0) {
+            alert("Et täyttänyt kaikkia kenttiä! " + errorsCount + " kenttää jäi tyhjäksi.")
+        }
+
+    }
+
+    
+    let imgPath = "../img/";
+    let images = ["001-alphabet.png","002-school-bell.png","003-bicycle.png","004-jokukuva.png"];
+
+    /* getImages -funktio näyttää kuvat parametrina annetusta arraysta */
+    function getImages(){
+        for (let i = 0; i < images.length; i++) {
+            document.getElementById("kuvat").innerHTML += '<img src="' + imgPath + images[i] +'" alt="">'
+        }
+    }
+
+
+    </script>
+</body>
+</html>
