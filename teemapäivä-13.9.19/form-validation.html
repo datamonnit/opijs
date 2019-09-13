@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form validation example</title>
+</head>
+<body>
+    <label for="">Username</label><br>
+    <input id="username" type="text" placeholder="insert username">
+    <span id="uname_error"></span><br>
+
+    <label for="">Password</label><br>
+    <input id="password" type="password" placeholder="insert username">
+    <span id="pwd_error"></span><br>
+
+    <label for="">Email</label><br>
+    <input id="email" type="text" placeholder="insert email">
+    <span id="email_error"></span><br>
+
+    <br>
+    <button onclick="checkForm()">Login</button>
+
+    <script>
+
+    function checkEmail(str){
+        // Löytyykö @-merkkiä
+        if (str.lastIndexOf("@") == -1) {
+            return false;
+        }
+        else if (str.indexOf("@") < 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    function checkForm(){
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
+        let email = document.getElementById('email').value;
+
+        if (username.length < 1) {
+            document.getElementById("uname_error").innerHTML = "Liian lyhyt";
+        } else {
+            document.getElementById("uname_error").innerHTML = "";
+        }
+
+        if (password.length < 6) {
+            document.getElementById("pwd_error").innerHTML = "Liian lyhyt";
+        } else {
+            document.getElementById("pwd_error").innerHTML = "";
+        }
+
+        // @-merkki keskellä merkkijonoa
+        // 1 . merkki @ merkin oikealla puolella muttei ihan vieressä
+        // pisteen saa olla min 3. viimeinen merkki
+        if (!checkEmail(email)) {
+            document.getElementById("email_error").innerHTML = "Ei ole validi sähköpostiosoite";
+        } else {
+            document.getElementById("email_error").innerHTML = "";
+        }
+
+
+    }
+    </script>
+</body>
+</html>

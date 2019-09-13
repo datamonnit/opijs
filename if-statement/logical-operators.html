@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>If logic</title>
+</head>
+<body>
+    <script>
+    var luku1 = prompt('anna 1 luku');    
+    var luku2 = prompt('anna 2 luku');
+    var luku3 = prompt('anna 3 luku');
+    
+    if (luku1 > 100 && luku2 > 100 && luku3 > 100) {
+        document.writeln('Jackpot!');
+    } else {
+        document.writeln('Hävisit!');
+    }
+
+    if (luku1 > 100 || luku2 > 100 || luku3 > 100) {
+        document.writeln('Edes yksi luku oli riittävän suuri');
+    } else {
+        document.writeln('Surkea esitys');
+    }
+        
+    </script>
+</body>
+</html>
