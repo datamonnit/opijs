@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dynamic form</title>
+    <style>
+    .form-group {
+        margin: 10px;
+    }
+    
+    .btn {
+        margin: 10px;
+    }
+
+    .form-group label {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <h1>Dynamic form</h1>
+    <div class="form-group">
+        <label for="question">Question</label>
+        <input type="text" name="question">
+    </div>
+
+    <button class="btn" onclick="addChoice()">Add choice</button>
+    
+    <div class="form-group">
+        <input type="text" name="c1" placeholder="choice 1">
+    </div>
+
+    <div id="choices">
+
+    </div>
+
+    <!-- tähän väliin uusia elementtjä -->
+
+    <div class="form-group">
+        <input type="submit" value="Send">
+    </div>
+    
+    <script>
+    
+    function addChoice(){
+
+        // count childelements
+        let i =  document.getElementById('choices').childElementCount + 2;
+
+        // Div-element with class-attribute
+        let newDiv = document.createElement('div');
+        let divClass = document.createAttribute('class');
+        divClass.value = 'form-group';
+        newDiv.setAttributeNode(divClass);
+
+        // New input div
+        let newInput = document.createElement('input');
+        let type = document.createAttribute('type');
+        let name = document.createAttribute('name');
+        let placeholder = document.createAttribute('placeholder');
+        type.value = 'text';
+        name.value = 'c' + i;
+        placeholder.value = 'choice ' + i
+        newInput.setAttributeNode(type);
+        newInput.setAttributeNode(name);
+        newInput.setAttributeNode(placeholder);
+
+        newDiv.appendChild(newInput);
+
+        document.getElementById('choices').appendChild(newDiv);
+    }
+
+
+    </script>
+    
+</body>
+</html>
