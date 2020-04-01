@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list</title>
+</head>
+<body>
+    <h1>Shopping list</h1>
+    <input type="text" id="shopItem" placeholder="add item">
+    <br>
+    <button onclick="addItem(document.getElementById('shopItem').value)">Add item</button>
+    <br>
+    <button onclick="removeItem()">Poista</button>
+    <ul id="shopList"></ul>
+
+    <script src="shoppinglist.js"></script>
+</body>
+</html>
