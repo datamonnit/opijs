@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Panos on <span id="demo"></span>  </p>
+    <button onclick="setPanos()">Set</button>
+    <script>
+
+    const panokset = [1,2,3,5,10,100];
+    let index = 0;
+
+    
+    function setPanos(){
+        index++;
+        if (index > panokset.length-1) {
+            index = 0;
+        }
+        document.getElementById("demo").innerHTML = panokset[index];
+    }   
+    </script>
+</body>
+</html>

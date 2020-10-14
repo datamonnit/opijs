@@ -22,6 +22,18 @@
     </select>
     <button onclick="naytaEkaValinta(getElementById('ekalista').value)">Paina tästä kun olet valinnut</button>
   </div>
+  <div>
+    Valitse muunnos listasta:
+    <select onchange="alert(this.value)" id="tokalista">
+      <option value="0">Valitse muunnos</option>
+      <option value="ctof">Celcius->Fahrenheit</option>
+      <option value="ftoc">Fahrenheit->Celcius</option>
+      <option value="ktoc">Kelvin->Celcius</option>
+      <option value="ctok">Celcius->Kelvin</option>
+  
+    </select>
+    <button onclick="naytaEkaValinta(getElementById('tokalista').value)">Paina tästä kun olet valinnut</button>
+  </div>
   <div >
 
     <input type="text" id="num" value="11"/>
