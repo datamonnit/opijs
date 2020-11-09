@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localstorage Example</title>
+</head>
+<body onload="init()">
+    <h1>Local Storage Example</h1>
+
+    <button onclick="vote(this.id)" id="cat">Kissa</button>
+    <button onclick="vote(this.id)" id="dog">Koira</button>
+    <button onclick="reset();">Start new count</button>
+    <div>
+        <p>Cats: <span id="cats"></span></p>
+        <p>Dogs: <span id="dogs"></span></p>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
