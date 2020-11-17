@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas API - Demo</title>
+    <style>
+        .canvas-container {
+            margin-top: 100px;
+            width:100vw;
+            height: 50vw;
+        }
+        .tools{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 50px;
+            width: 100%;
+
+            border: 1px solid rgb(10,10,10,0.5);
+        }
+        .tools button, .tools input {
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas-container">
+        <canvas id="myCanvas" width="800" height="400"></canvas>
+    </div>
+    <img id="canvasImg" alt="Image here">
+    
+
+    <div class="tools">
+        <button id="btnClear">Clear</button>
+
+        <button id="btnDraw">Draw</button>
+        
+        <label for="bgColor">Background color</label>
+        <input name="bgColor" type="color" id="btnBgColor" value="#ffffff" title="Background color">
+    
+        <label for="strokeColor">Stroke color</label>
+        <input name="strokeColor" type="color" id="btnStrokeColor" value="#000000"  title="Stroke color">
+    
+        <label for="fillColor">Fill color</label>
+        <input name="fillColor" type="color" id="btnFillColor" value="#aaaaaa"  title="Fill color">
+    
+        <label for="strokeWidth">Stroke width</label>
+        <input type="number" name="strokeWidth" id="btnStrokeWidth" min="1" max="100" value="2">  
+        
+        <label for="save">Save</label>
+        <input type="button" value="Save" id="btnSave" title="Save image">
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
