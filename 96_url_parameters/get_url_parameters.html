@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get URL parameters</title>
+</head>
+<body>
+    <h1>Get URL parameters</h1>
+    <ul>
+        <li>
+            <a href="?">get_url_parameters.html?</a>
+        </li>
+        <li>
+            <a href="?id=1010">get_url_parameters.html?id=1010</a>
+        </li>
+        <li>
+            <a href="?product=milk&qty=10">get_url_parameters.html?product=milk&qty=10</a>
+        </li>
+        
+    </ul>
+    
+    <h2>Query string</h2>
+    <p id="qs"></p>
+
+    <h2>Query parameters</h2>
+    <p id="parameters"></p>
+
+    <script>
+        const queryString = window.location.search;
+        console.log(queryString);
+
+        if (queryString.length > 0) {
+            
+            const urlParams = new URLSearchParams(queryString);
+            
+            // Keys
+            const keys = urlParams.keys();
+            for (const key of keys) console.log(key);
+
+            // Values
+            const values = urlParams.values();
+            for (const value of values) console.log(value);
+
+            // Entries
+            const entries = urlParams.entries();
+            document.getElementById('parameters').innerHTML = "";
+            for (const entry of entries) {
+                document.getElementById('parameters').innerHTML += `<strong>${entry[0]}</strong>: ${entry[1]}<br>`;
+            }
+            
+            document.getElementById('qs').innerHTML = queryString;
+
+        } else {
+            document.getElementById('qs').innerHTML = "Query String was empty";
+            document.getElementById('parameters').innerHTML = "";
+        }
+
+    </script>
+</body>
+</html>
