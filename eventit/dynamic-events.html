@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Dynamic events</h1>
+    <ul id="lista">
+
+    </ul>
+
+<script>
+    
+    document.getElementById('lista').addEventListener('click', doClick);
+
+    const ul = document.getElementById('lista');
+
+    for (let i=0; i<10; i++){
+        const li = document.createElement('li');
+        li.dataset.mydata = i;
+        const text = document.createTextNode('Click me');
+        li.appendChild(text);
+        ul.appendChild(li);
+    }
+
+    function doClick(event){
+        console.log(event)
+        if (event.target.nodeName == "LI"){
+            console.log('LI-click')
+        }
+        
+    }
+
+    
+
+
+
+</script>
+
+</body>
+</html>
