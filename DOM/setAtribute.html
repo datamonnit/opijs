@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        khaled {
+            display: block;
+            background-color: aquamarine;
+            border: 1px solid black;
+        }
+    </style>
+    
+</head>
+<body>
+    <khaled>Terve vaan</khaled>
+    
+    <p id="kissa">Tekstiä</p>
+    <input type="text">
+    <button onclick="doSomething()">Do Something</button>
+    <button onclick="addSomething()">Add Something</button>
+    <script>
+        function doSomething(){
+            let pTagi = document.getElementById("kissa");
+            let arvo = document.querySelector('input').value;
+            pTagi.setAttribute("khaled",arvo)
+        }
+        function addSomething(){
+            
+            let pTagi = document.getElementById("kissa");
+            let arvo = document.querySelector('input').value;
+            console.log(arvo)
+            pTagi.classList.add(arvo)
+        }
+        
+    </script>
+
+</body>
+</html>

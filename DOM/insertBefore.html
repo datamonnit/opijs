@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="btnInsertBefore">Insert Before</button>
+    <div id="target"></div>
+
+    <script>
+        
+        document.getElementById("btnInsertBefore").addEventListener("click", newLi);
+
+        function newLi(){
+            
+            const animals = ['Lion','Tiger','Dog','Cat'];
+            const targetUL = document.getElementById("target");
+
+            animals.forEach(function(animal){
+                
+                let el = document.createElement('div');
+                let text = document.createTextNode(animal);
+                el.appendChild(text);
+
+                // targetUL.appendChild(el);
+                targetUL.insertBefore(el, targetUL.firstChild);
+            });
+
+
+
+        }
+        
+    
+        
+
+    </script>
+</body>
+</html>
