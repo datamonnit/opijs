@@ -1,0 +1,59 @@
+[
+    {
+        "name":"The Shawshank Redemption",
+        "year": 1994,
+        "minutes": 142,
+        "director": "Frank Darabont",
+        "cast": [
+            {
+                "actor" : "Tim Robbins",
+                "role" : "Andy Dufresne"
+            },
+            {
+                "actor" : "Morgan Freeman",
+                "role" : "Ellis Boyd 'Red' Redding"
+            }
+        ]
+    },
+    {
+        "name":"The Godfather",
+        "year": 1972,
+        "minutes": 175,
+        "director": "Francis Ford Coppola",
+        "cast": [
+            {
+                "actor" : "Marlon Brando",
+                "role" : "Don Vito Corleone"
+            },
+            {
+                "actor" : "Al Pacino",
+                "role" : "Michael"
+            },
+            {
+                "actor" : "James Caan",
+                "role" : "Sonny"
+            }
+        ]
+    },
+    {
+        "name":"The Dark Knight",
+        "year": 2008,
+        "minutes": 152,
+        "director": "Cristopher Nolan",
+        "cast": [
+            {
+                "actor" : "Christian Bale",
+                "role" : "Bruce Wayne"
+            },
+            {
+                "actor" : "Heath Ledger",
+                "role" : "Joker"
+            },
+            {
+                "actor" : "Aaron Eckhart",
+                "role" : "Harvey Dent"
+            }
+        ]
+    }
+
+]
