@@ -1,0 +1,18 @@
+body {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+}
+
+h1 {
+    color: #bd7e00;
+}
+
+input {
+    padding: 1em;
+    width: 50%;
+}
+
+h2 {
+    color: #363636
+}
